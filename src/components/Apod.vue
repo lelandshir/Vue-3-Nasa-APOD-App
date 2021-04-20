@@ -48,7 +48,6 @@ export default {
 				data.media_type === "video"
 					? (this.isVideo = true)
 					: (this.isVideo = false);
-				// console.log(moment().format(moment.HTML5_FMT.DATE));
 				console.log(this.dateFromField);
 			})
 			.catch((error) => console.error(error));
@@ -56,9 +55,9 @@ export default {
 	methods: {
 		getPhoto() {
 			fetch(
-				`${this.uri}&date=${moment(this.dateFromField).format(
-					moment.HTML5_FMT.DATE
-				)}`
+				`https://secure-citadel-62036.herokuapp.com/${this.uri}&date=${moment(
+					this.dateFromField
+				).format(moment.HTML5_FMT.DATE)}`
 			)
 				.then((res) => res.json())
 				.then((data) => {
@@ -108,4 +107,3 @@ img {
 	margin: 1rem auto;
 }
 </style>
-// .subtract(1, "days")
